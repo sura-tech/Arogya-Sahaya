@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#1B6B3A"
+        android:pathData="M0,0h108v108h-108z"/>
+    <!-- Subtle pulse/ECG line decoration -->
+    <path
+        android:strokeColor="#2E8B57"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M10,70 L30,70 L38,50 L46,85 L54,40 L62,75 L70,70 L98,70" />
+</vector>
