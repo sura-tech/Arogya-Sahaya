@@ -1,42 +1,57 @@
-ArogyaSahaya 🏥
-ArogyaSahaya is an Android application designed to help users manage their medication schedules effectively. It ensures patients never miss a dose by providing precise, automated reminders (alarms) for different times of the day.
-🚀 Features
-  •Smart Medication Scheduling: Add medicines and assign them to specific slots (Morning, Afternoon, Night).
-  •Precision Alarms: Uses AlarmManager with setAlarmClock (the gold standard for Android) to ensure reminders fire exactly on time, even if the device is in Doze mode.
-  •Flexible Time Input: Supports both 24-hour (HH:mm) and 12-hour (h:mm AM/PM) formats.
-  •Automatic Rescheduling: Once a notification is triggered, the app automatically schedules the next alarm for the following day.
-  •Persistent Storage: Built with Room Database to keep your medication data safe.
-  •Modern UI: Developed using Jetpack Compose for a smooth, material-design experience.
+ ArogyaSahaya 🏥
 
-🛠️ Tech Stack
-•Language: Kotlin
-•UI Framework: Jetpack Compose
-•Architecture: MVVM (Model-View-ViewModel)
-•Database: Room Persistence Library
-•Background Tasks: AlarmManager & Broadcast Receivers
-•Dependency Injection: Kotlin Coroutines & Lifecycle ViewModel
 
-⚙️ How it Works: Alarm Logic
-The core logic resides in AlarmScheduler.kt. It calculates the exact time for the alarm:
-1.It parses the user-provided time string.
-2.If the time has already passed for today, it automatically advances the calendar to the next day.
-3.It creates a PendingIntent unique to that medicine and slot using .hashCode().
-4.It uses the highest precision alarm method available for the user's Android version:
-           ◦API 21+: setAlarmClock
-           ◦API 23+: setExactAndAllowWhileIdle
+ArogyaSahaya is a smart Android application designed to help users manage their medication schedules effectively. It delivers precise, reliable reminders so patients never miss their medicines.
 
 
 
-📥 Installation
-1.Clone the repository:
-Shell Script
-git clone https://github.com/your-username/ArogyaSahaya.git
-2.Open the project in Android Studio (Ladybug or newer).
-3.Sync Project with Gradle Files.
-4.Build and Run on an emulator or physical device (Android 5.0+).
+ ✨ Features
 
-🛡️ Permissions Required
-The app requires the following permissions to function correctly:
-•SCHEDULE_EXACT_ALARM: To trigger reminders at the exact second.
-•POST_NOTIFICATIONS: (For Android 13+) To show medication alerts.
-•RECEIVE_BOOT_COMPLETED: To reschedule alarms if the phone is restarted.
+- Smart Medication Scheduling — Add medicines and assign them to specific slots (Morning, Afternoon, Night)
+- Precision Alarms — Uses `AlarmManager` with `setAlarmClock()` — the most reliable method on Android
+- Smart Time Handling — Supports both 24-hour (HH:mm) and 12-hour (h:mm AM/PM) formats
+- Auto Rescheduling — Automatically schedules the next day’s alarm after a reminder is triggered
+- Persistent Storage — Built with Room Database for reliable data storage
+- Modern UI — Beautiful and smooth interface using Jetpack Compose
+- Boot Persistence — Automatically restores all alarms after device restart
+
+
+
+ 🛠️ Tech Stack
+
+- Language: Kotlin
+- UI: Jetpack Compose (Material 3)
+- Architecture: MVVM
+- Database: Room Persistence Library
+- Alarms: AlarmManager + BroadcastReceiver
+- Background Handling: `setAlarmClock()` & `setExactAndAllowWhileIdle()`
+- Async: Kotlin Coroutines + Lifecycle ViewModel
+
+
+
+ ⚙️ How It Works (Alarm Logic)
+
+The core intelligence lies in `AlarmScheduler.kt`:
+
+1. Parses the user-provided time string (flexible format support)
+2. Automatically advances to the next day if the time has already passed today
+3. Creates a unique `PendingIntent` for each medicine + slot
+4. Uses the highest precision alarm API based on Android version:
+   - API 21+: `setAlarmClock()`
+   - API 23+: `setExactAndAllowWhileIdle()`
+
+This ensures alarms fire **exactly** on time, even in Doze mode.
+
+
+
+ 📥 Installation
+
+ Prerequisites
+- Android Studio (Ladybug or newer recommended)
+- Minimum SDK: Android 5.0 (API 21)
+
+### Steps
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/sura-tech/Arogya-Sahaya.git
